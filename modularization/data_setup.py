@@ -1,4 +1,4 @@
-""" 
+"""
 Contains functionality for creating PyTorch DataLoader's for image classification data.
 """
 import os
@@ -13,11 +13,11 @@ def create_dataloaders(
   test_dir: str,
   transform: transforms.Compose,
   batch_size: int,
-  num_workers: int=NUM_WORKERS  
-): 
+  num_workers: int=NUM_WORKERS
+):
   """Creates training and testing DataLoaders.
 
-  Takes in a training directory and testing directroy path and turns them into 
+  Takes in a training directory and testing directroy path and turns them into
   PyTorch Datasets and then into PyTorch DataLoaders.
 
   Args:
