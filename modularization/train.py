@@ -5,16 +5,16 @@ import os
 import torch
 
 from torchvision import transforms
-from timeit import default_timer as timer 
+from timeit import default_timer as timer
 
 import data_setup, engine, model_builder, utils
 
 # Set random seeds
-torch.manual_seed(36) 
+torch.manual_seed(36)
 torch.cuda.manual_seed(36)
 
 # Setup hyperparameters
-NUM_EPOCHS = 5 
+NUM_EPOCHS = 5
 BATCH_SIZE = 32
 HIDDEN_UNITS = 10
 LEARNING_RATE = 0.001
@@ -33,7 +33,7 @@ data_transform = transforms.Compose([
 ])
 
 # Create DataLoader's and get class_names
-train_dataloader, test_dataloader, class_names = data_setup.create_dataloaders(train_dir=train_dir, 
+train_dataloader, test_dataloader, class_names = data_setup.create_dataloaders(train_dir=train_dir,
                                                                                test_dir=test_dir,
                                                                                transform=data_transform,
                                                                                batch_size=BATCH_SIZE)
@@ -58,7 +58,7 @@ engine.train(model=model,
              test_dataloader=test_dataloader,
              loss_fn=loss_fn,
              optimizer=optimizer,
-             epochs=NUM_EPOCHS, 
+             epochs=NUM_EPOCHS,
              device=device)
 
 # End the timer and print out how long it took
